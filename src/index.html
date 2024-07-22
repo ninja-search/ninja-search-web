@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <script>
+        function redirectToEndpoint() {
+            // Get the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            // Get the keyword parameter
+            const keyword = urlParams.get('q');
+            if (keyword) {
+                if (keyword.startsWith("c ")){
+                    const endpoint = "https://chat.openai.com/?q=";
+                }
+                else if (keyword.startsWith("d ")){
+                    const endpoint = "https://www.duckduckgo.com/?q=";
+                }
+                else if (keyword.startsWith("g ")){
+                    const endpoint = "https://www.google.com/search?q=";
+                }
+                else if (keyword.startsWith("gt ")){
+                    const endpoint = "https://github.com/search?q=";
+                }
+                else if (keyword.startsWith("y ")){
+                    const endpoint = "https://search.yahoo.com/search?p=";
+                }
+                else if (keyword.startsWith("yt ")){
+                    const endpoint = "https://www.youtube.com/results?search_query=";
+                }
+                // Construct the new URL
+                const newUrl = endpoint + encodeURIComponent(keyword);
+                
+                // Redirect to the new URL
+                window.location.href = newUrl;
+            } else {
+                // If no keyword is found, display a message
+                document.getElementById('message').innerText = "No keyword provided in the URL.";
+            }
+        }
+    </script>
+</head>
+<body onload="redirectToEndpoint()">
+    <p id="message">Redirecting...</p>
+</body>
+</html>
