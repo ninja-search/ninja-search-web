@@ -17,9 +17,6 @@
                 else if (keyword.startsWith("d ")){
                     const endpoint = "https://www.duckduckgo.com/?q=";
                 }
-                else if (keyword.startsWith("g ")){
-                    const endpoint = "https://www.google.com/search?q=";
-                }
                 else if (keyword.startsWith("gt ")){
                     const endpoint = "https://github.com/search?q=";
                 }
@@ -28,6 +25,9 @@
                 }
                 else if (keyword.startsWith("yt ")){
                     const endpoint = "https://www.youtube.com/results?search_query=";
+                }
+                else {
+                    const endpoint = "https://www.google.com/search?q=";
                 }
                 // Construct the new URL
                 const newUrl = endpoint + encodeURIComponent(keyword);
