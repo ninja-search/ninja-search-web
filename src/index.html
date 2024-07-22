@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <script>
+        function redirectToEndpoint() {
+            // Get the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            // Get the keyword parameter
+            const keyword = urlParams.get('q');
+            if (keyword) {
+                // Construct the new URL
+                const endpoint = "https://www.google.com/search?q=";
+                const newUrl = endpoint + encodeURIComponent(keyword);
+                
+                // Redirect to the new URL
+                window.location.href = newUrl;
+            } else {
+                // If no keyword is found, display a message
+                document.getElementById('message').innerText = "No keyword provided in the URL.";
+            }
+        }
+    </script>
+</head>
+<body onload="redirectToEndpoint()">
+    <p id="message">Redirecting...</p>
+</body>
+</html>
