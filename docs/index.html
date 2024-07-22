@@ -9,7 +9,7 @@
             // Get the URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             // Get the keyword parameter
-            const keyword = decodeURIComponent(urlParams.get('q'));
+            const keyword = urlParams.get('q');
             if (keyword) {
                 if (keyword.startsWith("c ")){
                     endpoint = "https://chat.openai.com/?q=";
